@@ -1,5 +1,8 @@
 # Log Monitoring based on Hyperledger Fabric Blockchain
 
+## General Architecture
+![alt text](https://github.com/sfl0r3nz05/LogMonitoringHFB/blob/main/images/LogMonitoringHFB.png)
+
 ## How to use 😎
 1. Create a file (.env) in the project root
 2. The .env file must be contain:
