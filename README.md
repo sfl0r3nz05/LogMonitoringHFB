@@ -3,7 +3,7 @@
 ## General Architecture
 ![alt text](https://github.com/sfl0r3nz05/LogMonitoringHFB/blob/main/images/LogMonitoringHFB.png)
 
-## Set up 😎
+## Set up 🙂
 1. The necessary plugins must be added as part of the Dockerfile included in logstash folder. E.g.:
     - RUN logstash-plugin install logstash-output-mongodb
     - RUN logstash-plugin install logstash-filter-uuid
