@@ -1,0 +1,55 @@
+version: "3.2"
+
+volumes:
+  mongodb:
+  mongodb_config:
+  json-data:    # suricata json input -> logstash
+  suricata:
+  
+services:
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    hostname: logstash 
+    container_name: logstash
+    ports:
+      - 5044:5044
+    volumes:
+      - ./json-data/eve.json:/var/log/logstash
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/filters/logstash-filter-uuid.gemspec:/urs/share/logstash/filters/logstash-filter-uuid.gemspec
+    environment:
+      LOG_LEVEL: error
+    #command: sh -c "sh logstash-plugin install /urs/share/logstash/filters/logstash-filter-uuid.gemspec"      
+
+  suricata:
+    build: ./suricata
+    container_name: suricata
+    image: suricata
+    restart: always
+    environment:
+      - OINKCODE=OPEN
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./json-data/eve.json:/var/log/suricata/eve.json
+      - ./suricata/rules/my.rules:/var/lib/suricata/rules/my.rules
+      - ./suricata/docker-entrypoint.sh:/tmp/docker-entrypoint.sh
+      - ./suricata/suricata-update-cron:/etc/crontabs/suricata-update-cron
+      - ./suricata/suricata-update.sh:/tmp/suricata-update.sh
+      - ./suricata/scripts/get_signature_ids.sh:/tmp/get_signature_ids.sh
+      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml
+    command: sh -c "sh /tmp/docker-entrypoint.sh"
+
+  mongo:
+    container_name: mongodb
+    image: mongo:4.2.8
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
