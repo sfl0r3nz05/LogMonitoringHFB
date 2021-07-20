@@ -1,7 +1,6 @@
 version: "3.2"
 
 volumes:
-  mongodb_config:
   suricata:
   
 services:
@@ -51,5 +50,5 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongodb:/data/db
-      - mongodb_config:/data/configdb
+      - ./mongodb/mongodb:/data/db
+      - ./mongodb/mongodb_config:/data/configdb

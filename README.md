@@ -21,5 +21,6 @@
 5. Set execution permissions to eve.json E.g.: sudo chmod +x -R json-data/*
 
 ## To do 🤔
-1. Install plugins properly.
+1. Install plugins properly. 🔚
+2. Sync logstash and mongodb
 2. Add right rules to suricata in order to collect proper logs.
