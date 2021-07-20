@@ -3,7 +3,6 @@ version: "3.2"
 volumes:
   mongodb:
   mongodb_config:
-  #json-data:    # suricata json input -> logstash
   suricata:
   
 services:
@@ -23,7 +22,6 @@ services:
       - ./logstash/filters/logstash-filter-uuid.gemspec:/urs/share/logstash/filters/logstash-filter-uuid.gemspec
     environment:
       LOG_LEVEL: error
-    #command: sh -c "sh logstash-plugin install /urs/share/logstash/filters/logstash-filter-uuid.gemspec"      
 
   suricata:
     build: ./suricata
@@ -49,8 +47,8 @@ services:
     container_name: mongodb
     image: mongo:latest
     environment:
-      MONGO_INITDB_ROOT_USERNAME: lourdes
-      MONGO_INITDB_ROOT_PASSWORD: changeme
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
     ports:
       - 27017:27017
     volumes:
