@@ -1,4 +1,3 @@
 /json-data/*.json
 .env
-/mongodb/mongodb
-/mongodb/mongodb_config
+/mongodb/database
