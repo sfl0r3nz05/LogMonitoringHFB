@@ -18,7 +18,7 @@
 3. Copy and paste the file eve.json.example in the same directory (json-data).
 4. Rename the copy to eve.json
     - The purpose of this feature is .gitignore file ignorates the eve.json to avoid overhead the repository with a huge json file.
-5. Set execution permissions to eve.json E.g.: sudo chmod +x -R json-data/*
+5. Set execution permissions to eve.json file E.g.: sudo chmod +x -R json-data/*
 6. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
 
 ## To do 🤔
