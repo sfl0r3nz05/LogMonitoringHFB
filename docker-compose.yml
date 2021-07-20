@@ -3,7 +3,7 @@ version: "3.2"
 volumes:
   mongodb:
   mongodb_config:
-  json-data:    # suricata json input -> logstash
+  #json-data:    # suricata json input -> logstash
   suricata:
   
 services:
@@ -48,6 +48,9 @@ services:
   mongo:
     container_name: mongodb
     image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: lourdes
+      MONGO_INITDB_ROOT_PASSWORD: changeme
     ports:
       - 27017:27017
     volumes:
