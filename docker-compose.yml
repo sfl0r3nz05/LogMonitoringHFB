@@ -9,8 +9,9 @@ services:
       context: logstash/
       args:
         ELK_VERSION: $ELK_VERSION
-    hostname: logstash 
+    hostname: logstash
     container_name: logstash
+    restart: always
     ports:
       - 5044:5044
     volumes:
@@ -44,11 +45,13 @@ services:
   mongo:
     container_name: mongodb
     image: mongo:latest
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
+      MONGO_INITDB_DATABASE: "${DB_NAME}"
     ports:
-      - 27017:27017
+      - 28017:27017
     volumes:
       - ./mongodb/mongodb:/data/db
       - ./mongodb/mongodb_config:/data/configdb
