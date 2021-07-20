@@ -19,6 +19,7 @@
 4. Rename the copy to eve.json
     - The purpose of this feature is .gitignore file ignorates the eve.json to avoid overhead the repository with a huge json file.
 5. Set execution permissions to eve.json E.g.: sudo chmod +x -R json-data/*
+6. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
 
 ## To do 🤔
 1. Install plugins properly. 🔚
