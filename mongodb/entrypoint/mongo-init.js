@@ -1,14 +1,14 @@
 db.createUser(
     {
-      user: "lourdes",
-      pwd: "changeme",
+      user: process.env.MONGO_INITDB_ROOT_USERNAME,
+      pwd: process.env.MONGO_INITDB_ROOT_PASSWORD,
       roles: [
         {
           role: "readWrite",
-          db: "suricata"
+          db: process.env.MONGO_INITDB_DATABASE
         }
       ]
     }
 );
 
-  db.createCollection('suricata');
+  db.createCollection(process.env.MONGO_INITDB_COLLECTION);
