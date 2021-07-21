@@ -31,7 +31,7 @@
 4. Down: docker-compose down
 
 ## How to test 👁‍🗨
-### Mongodb
+### MongoDB
 1. To connect to mongo docker, e.g., docker exec -it bad88f0b0326 bash
 2. To log in in mongodb client, e.g., mongo -u lourdes -p changeme
 3. To connect to database, e.g., use suricata
