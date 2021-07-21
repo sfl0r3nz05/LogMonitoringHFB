@@ -15,7 +15,7 @@ services:
     ports:
       - 5044:5044
     volumes:
-      - ./json-data/eve.json:/var/log/logstash
+      - ./json-data/eve.json:/usr/share/logstash/logs/eve.json
       - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/filters/logstash-filter-uuid.gemspec:/urs/share/logstash/filters/logstash-filter-uuid.gemspec
@@ -49,7 +49,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
-      MONGO_INITDB_DATABASE: "${MONGO_INITDB_DATABASE}"
+      MONGO_INITDB_COLLECTION: "${MONGO_INITDB_COLLECTION}"
+      MONGO_INITDB_DATABASE: "${MONGO_INITDB_DATABASE}"      
       PUID: 1000
       PGID: 1000
     ports:

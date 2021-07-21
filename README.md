@@ -7,20 +7,20 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 1. The necessary plugins must be added as part of the Dockerfile included in logstash folder. E.g.:
     - RUN logstash-plugin install logstash-output-mongodb
     - RUN logstash-plugin install logstash-filter-uuid
-2. Create a file (.env) in the project root or just rename .env.example file as .env
-3. The .env file must be contain:
-    - OS_SURICATA=
-    - ELK_VERSION=
-    - MONGO_INITDB_DATABASE=
-    - MONGO_INITDB_COLLECTION=
-    - MONGO_INITDB_ROOT_USERNAME=
-    - MONGO_INITDB_ROOT_PASSWORD=
-4. Copy and paste the file eve.json.example in the same directory (json-data).
-5. Rename the copy to eve.json
+2. Create a file (.env) in the project root based on .env.example file.
+    - The .env file must be contain:
+        - OS_SURICATA=
+        - ELK_VERSION=
+        - MONGO_INITDB_DATABASE=
+        - MONGO_INITDB_COLLECTION=
+        - MONGO_INITDB_ROOT_USERNAME=
+        - MONGO_INITDB_ROOT_PASSWORD=
+4. Create folder json-data
+5. Create a file eve.json in the same directory (json-data).
     - The purpose of this feature is .gitignore file ignorates the eve.json to avoid overhead the repository with a huge json file.
 6. Set execution permissions to eve.json file E.g.: sudo chmod +x -R json-data/*
 7. Create folders mkdir -pv mongodb/database
-8. Create folders mkdir -pv mongodb/entrypoiny
+8. Create folders mkdir -pv mongodb/entrypoint
 9. Set the entrypoint file mongo-init.js
 10. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
 

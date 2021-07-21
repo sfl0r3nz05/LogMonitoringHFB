@@ -11,4 +11,4 @@ db.createUser(
     }
 );
 
-  db.createCollection(process.env.MONGO_INITDB_COLLECTION);
+db.createCollection(process.env.MONGO_INITDB_COLLECTION);
