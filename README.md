@@ -25,9 +25,10 @@
 10. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
 
 ## How to use 😎
-1. Start: docker-compose up -d
-2. Stop: docker-compose stop
-3. Down: docker-compose down
+1. sudo chmod +x -R json-data/*
+2. Start: docker-compose up -d
+3. Stop: docker-compose stop
+4. Down: docker-compose down
 
 ## How to test 👁‍🗨
 ### Mongodb
