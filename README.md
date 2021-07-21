@@ -22,13 +22,12 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 6. Create folders mkdir -pv mongodb/database
 7. Create folders mkdir -pv mongodb/entrypoint
 8. Set the entrypoint file mongo-init.js
-9. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
+9. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb/*
 
 ## How to use 😎
-1. sudo chmod +x -R json-data/*
-2. Start: docker-compose up -d
-3. Stop: docker-compose stop
-4. Down: docker-compose down
+1. Start: docker-compose up -d
+2. Stop: docker-compose stop
+3. Down: docker-compose down
 
 ## How to test 👁‍🗨
 ### MongoDB
@@ -42,3 +41,7 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 1. Install plugins properly. 🔚
 2. Sync logstash and mongodb
 2. Add right rules to suricata in order to collect proper logs.
+
+## Troubleshoot
+1. To test the UUID and Json filters the mongodb plugin is disabled and then the file plugin is enabled:
+    - file {path => "/usr/share/logstash/output/output.json"}
