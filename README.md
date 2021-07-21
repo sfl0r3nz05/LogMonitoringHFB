@@ -15,14 +15,14 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
         - MONGO_INITDB_COLLECTION=
         - MONGO_INITDB_ROOT_USERNAME=
         - MONGO_INITDB_ROOT_PASSWORD=
-4. Create folder json-data
-5. Create a file eve.json in the same directory (json-data).
+3. Create a folder json-data
+4. Create a file eve.json in the same directory (json-data).
     - The purpose of this feature is .gitignore file ignorates the eve.json to avoid overhead the repository with a huge json file.
-6. Set execution permissions to eve.json file E.g.: sudo chmod +x -R json-data/*
-7. Create folders mkdir -pv mongodb/database
-8. Create folders mkdir -pv mongodb/entrypoint
-9. Set the entrypoint file mongo-init.js
-10. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
+5. Set execution permissions to eve.json file E.g.: sudo chmod +x -R json-data/*
+6. Create folders mkdir -pv mongodb/database
+7. Create folders mkdir -pv mongodb/entrypoint
+8. Set the entrypoint file mongo-init.js
+9. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb
 
 ## How to use 😎
 1. sudo chmod +x -R json-data/*
