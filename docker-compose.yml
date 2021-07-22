@@ -48,7 +48,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
-      MONGO_INITDB_DATABASE: "${MONGO_INITDB_DATABASE}"
     ports:
       - 27017:27017
     volumes:
@@ -60,9 +59,13 @@ services:
     restart: always
     ports:
       - 8081:8081
+    depends_on:
+      - mongo
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: lourdes
-      ME_CONFIG_MONGODB_ADMINPASSWORD: changeme
+      ME_CONFIG_BASICAUTH_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      ME_CONFIG_BASICAUTH_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: user_lou
       ME_CONFIG_MONGODB_ADMINPASSWORD: 123456
+    links:
+      - mongo
