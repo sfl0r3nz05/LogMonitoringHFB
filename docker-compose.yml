@@ -45,11 +45,26 @@ services:
     container_name: mongodb
     image: mongo:latest
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
-      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
+    #environment:
+      #MONGO_INITDB_ROOT_USERNAME: lourdes
+      #MONGO_INITDB_ROOT_PASSWORD: changeme
+      #MONGO_INITDB_DATABASE: "${MONGO_INITDB_DATABASE}"
     ports:
       - 27017:27017
     volumes:
       - ./mongodb/database:/data/db
       - ./mongodb/entrypoint:/docker-entrypoint-initdb.d/
+
+
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: lourdes
+      ME_CONFIG_MONGODB_ADMINPASSWORD: changeme
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: user_lou
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456
