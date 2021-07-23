@@ -52,7 +52,8 @@ services:
       - 27017:27017
     volumes:
       - ./mongodb/database:/data/db
-      - ./mongodb/entrypoint:/docker-entrypoint-initdb.d/
+      - ./mongodb/.dbshell:/home/mongodb/.dbshell
+      - ./mongodb/entrypoint/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   mongo-express:
     image: mongo-express
@@ -62,10 +63,10 @@ services:
     depends_on:
       - mongo
     environment:
-      ME_CONFIG_BASICAUTH_USERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
-      ME_CONFIG_BASICAUTH_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
+      ME_CONFIG_BASICAUTH_USERNAME: "${ME_CONFIG_BASICAUTH_USERNAME}"
+      ME_CONFIG_BASICAUTH_PASSWORD: "${ME_CONFIG_BASICAUTH_PASSWORD}"
       ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_ADMINUSERNAME: user_lou
-      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456
+      ME_CONFIG_MONGODB_ADMINUSERNAME: "${MONGO_INITDB_ROOT_USERNAME}"
+      ME_CONFIG_MONGODB_ADMINPASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
     links:
       - mongo
