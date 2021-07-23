@@ -15,6 +15,10 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
         - MONGO_INITDB_COLLECTION=
         - MONGO_INITDB_ROOT_USERNAME=
         - MONGO_INITDB_ROOT_PASSWORD=
+        - ME_CONFIG_BASICAUTH_USERNAME=
+        - ME_CONFIG_BASICAUTH_PASSWORD=
+        - ME_CONFIG_MONGODB_ADMINUSERNAME=
+        - ME_CONFIG_MONGODB_ADMINPASSWORD=
 3. Create a folder json-data
 4. Create a file eve.json in the same directory (json-data).
     - The purpose of this feature is .gitignore file ignorates the eve.json to avoid overhead the repository with a huge json file.
@@ -23,6 +27,8 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 7. Create folders mkdir -pv mongodb/entrypoint
 8. Set the entrypoint file mongo-init.js
 9. Set execution permissions to mongodb folder E.g.: sudo chmod +x -R mongodb/*
+10. Create the file .dbshell
+11. Set execution permissions to .dbshell file E.g.: sudo chmod +x -R mongodb/.dbshell
 
 ## How to use 😎
 1. Start: docker-compose up -d
