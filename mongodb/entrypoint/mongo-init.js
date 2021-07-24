@@ -6,6 +6,10 @@ db.createUser(
             {
                 role: "readWrite",
                 db: "suricata"
+            },
+            {
+                role: "userAdmin",
+                db: "suricata"
             }
         ]
     }
