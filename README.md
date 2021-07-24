@@ -36,14 +36,14 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 3. Down: docker-compose down
 
 ## How to test 👁‍🗨
-### MongoDB
+### Test MongoDB
 1. To connect to mongo docker, e.g., docker exec -it bad88f0b0326 bash
 2. To log in in mongodb client, e.g., mongo -u lourdes -p changeme
 3. To connect to database, e.g., use suricata
 4. To show collectios created, e.g., show collections
 5. To see inside collections, e.g., db.suricata.find().pretty()
-### MongoDB with logstash
-1. To transfer the data, e.g., curl https://downloads.mongodb.com/compass/mongodb-mongosh_1.0.1_amd64.deb --output mongodb-mongosh_1.0.1_amd64.deb
+### Test connection between logstash with MongoDB
+1. To transfer the data, e.g., curl https://downloads.mongodb.com/compass/mongosh-1.0.1-linux-x64.tgz --output mongosh-1.0.1-linux-x64.tgz --output mongodb-mongosh_1.0.1_amd64.deb
 2. To unzip mongosh-1.0.1-linux-x64, e.g., tar -zxvf mongosh-1.0.1-linux-x64.tgz
 3. To access to bin folder, e.g., cd mongosh-1.0.1-linux-x64/bin
 4. To log in mongodb client, e.g., ./mongosh mongodb://lourdes:changeme@172.20.0.3:27017/suricata
