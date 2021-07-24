@@ -43,7 +43,7 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 4. To show collectios created, e.g., show collections
 5. To see inside collections, e.g., db.suricata.find().pretty()
 ### Test connection between logstash with MongoDB
-1. To transfer the data, e.g., curl https://downloads.mongodb.com/compass/mongosh-1.0.1-linux-x64.tgz --output mongosh-1.0.1-linux-x64.tgz --output mongodb-mongosh_1.0.1_amd64.deb
+1. To transfer the data, e.g., curl https://downloads.mongodb.com/compass/mongosh-1.0.1-linux-x64.tgz --output mongosh-1.0.1-linux-x64.tgz
 2. To unzip mongosh-1.0.1-linux-x64, e.g., tar -zxvf mongosh-1.0.1-linux-x64.tgz
 3. To access to bin folder, e.g., cd mongosh-1.0.1-linux-x64/bin
 4. To log in mongodb client, e.g., ./mongosh mongodb://lourdes:changeme@172.20.0.3:27017/suricata
