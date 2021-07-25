@@ -47,6 +47,7 @@ ex# Log Monitoring based on Hyperledger Fabric Blockchain
 2. To unzip mongosh-1.0.1-linux-x64, e.g., tar -zxvf mongosh-1.0.1-linux-x64.tgz
 3. To access to bin folder, e.g., cd mongosh-1.0.1-linux-x64/bin
 4. To log in mongodb client, e.g., ./mongosh mongodb://lourdes:changeme@172.20.0.3:27017/suricata
+5. To authenticate in the database, e.g., ./mongosh mongodb://lourdes:changeme@172.18.0.2:27017/suricata?authSource=admin
 
 ## To do 🤔
 1. Install plugins properly. 🔚

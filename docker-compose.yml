@@ -11,7 +11,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     hostname: logstash
     container_name: logstash
-    restart: always
+    #restart: always
     ports:
       - 5044:5044
     volumes:
@@ -20,6 +20,8 @@ services:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
     environment:
       LOG_LEVEL: error
+    networks:
+      - logMonHFB
 
   suricata:
     build: ./suricata
@@ -28,7 +30,6 @@ services:
     restart: always
     environment:
       - OINKCODE=OPEN
-    network_mode: "host"
     cap_add:
       - NET_ADMIN
     volumes:
@@ -40,6 +41,8 @@ services:
       - ./suricata/scripts/get_signature_ids.sh:/tmp/get_signature_ids.sh
       - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml
     command: sh -c "sh /tmp/docker-entrypoint.sh"
+    networks:
+      - logMonHFB
 
   mongo:
     container_name: mongodb
@@ -53,6 +56,8 @@ services:
     volumes:
       - ./mongodb/database:/data/db
       - ./mongodb/entrypoint/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - logMonHFB
 
   mongo-express:
     image: mongo-express
@@ -70,3 +75,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
     links:
       - mongo
+    networks:
+      - logMonHFB
+
+networks:
+  logMonHFB:
