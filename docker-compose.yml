@@ -15,7 +15,8 @@ services:
     ports:
       - 5044:5044
     volumes:
-      - ./json-data/eve.json:/usr/share/logstash/logs/eve.json
+      - ./json-data/eve.log:/usr/share/logstash/logs/eve.log
+      #- ./json-data/eve.json:/usr/share/logstash/logs/eve.json
       - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
     environment:
@@ -23,26 +24,26 @@ services:
     networks:
       - logMonHFB
 
-  suricata:
-    build: ./suricata
-    container_name: suricata
-    image: suricata
-    #restart: always
-    environment:
-      - OINKCODE=OPEN
-    cap_add:
-      - NET_ADMIN
-    volumes:
-      - ./json-data/eve.json:/var/log/suricata/eve.json
-      - ./suricata/rules/my.rules:/var/lib/suricata/rules/my.rules
-      - ./suricata/docker-entrypoint.sh:/tmp/docker-entrypoint.sh
-      - ./suricata/suricata-update-cron:/etc/crontabs/suricata-update-cron
-      - ./suricata/suricata-update.sh:/tmp/suricata-update.sh
-      - ./suricata/scripts/get_signature_ids.sh:/tmp/get_signature_ids.sh
-      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml
-    command: sh -c "sh /tmp/docker-entrypoint.sh"
-    networks:
-      - logMonHFB
+#  suricata:
+#    build: ./suricata
+#    container_name: suricata
+#    image: suricata
+#    #restart: always
+#    environment:
+#      - OINKCODE=OPEN
+#    cap_add:
+#      - NET_ADMIN
+#    volumes:
+#      - ./json-data/eve.json:/var/log/suricata/eve.json
+#      - ./suricata/rules/my.rules:/var/lib/suricata/rules/my.rules
+#      - ./suricata/docker-entrypoint.sh:/tmp/docker-entrypoint.sh
+#      - ./suricata/suricata-update-cron:/etc/crontabs/suricata-update-cron
+#      - ./suricata/suricata-update.sh:/tmp/suricata-update.sh
+#      - ./suricata/scripts/get_signature_ids.sh:/tmp/get_signature_ids.sh
+#      - ./suricata/suricata.yaml:/etc/suricata/suricata.yaml
+#    command: sh -c "sh /tmp/docker-entrypoint.sh"
+#    networks:
+#      - logMonHFB
 
   mongo:
     container_name: mongodb
